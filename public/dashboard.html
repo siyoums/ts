@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Conflict Notify</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo2.jpg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto&family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<style>
+    #suggestions .dropdown-item {
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#suggestions .dropdown-item:hover {
+    background-color: #f8f9fa;  /* Light grey for hover */
+}
+
+</style>
+
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Product Management</h2>
+    
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="productTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="drugs-tab" data-toggle="tab" href="#drugs" role="tab" aria-controls="drugs" aria-selected="true">Drugs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="equipment-tab" data-toggle="tab" href="#equipment" role="tab" aria-controls="equipment" aria-selected="false">Equipment</a>
+            </li>
+            
+        </ul>
+
+          <!-- Tab Content -->
+    <div class="tab-content mt-3">
+        <!-- Drugs Tab Content -->
+        <div class="tab-pane fade show active" id="drugs" role="tabpanel" aria-labelledby="drugs-tab">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addDrugModal">Add New Drug</button>
+            
+            <!-- Search form for drugs with suggestions container -->
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <small class="invisible" id="drugMsgContainer">hello</small>
+                        <div class="input-group">
+                            <input type="text" id="searchDrugInput" class="form-control" placeholder="Search drug...">
+                            <div class="input-group-append">
+                                <button class="btn btn-light">
+                                    <i class="fas fa-search"></i> 
+                                </button>
+                            </div>
+                        </div>
+
+                    <!-- Suggestions dropdown -->
+            <div class="dropdown ">
+                <div class="dropdown-menu invisible py-0" aria-labelledby="searchInput" id="drugSearchSuggestions" style="width: 92%; display: block; position: relative;">
+                </div>
+            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Tab Content -->
+        <div class="tab-pane fade" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addEquipmentModal">Add New Equipment</button>
+                    <!-- Search form for equipments with suggestions container -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search equipment...">
+                        <div class="input-group-append">
+                            <button class="btn btn-light">
+                                <i class="fas fa-search"></i> 
+                            </button>
+                        </div>
+                    </div>
+
+                <!-- Suggestions dropdown -->
+        <div class="dropdown">
+            <div class="dropdown-menu" aria-labelledby="searchInput" id="suggestions" style="width: 92%; display: block; position: relative;">
+                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#drugInfoModal"><small>Search suggestion one</small></a>
+                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#drugInfoModal"><small>Search suggestion one</small></a>
+                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#drugInfoModal"><small>Search suggestion one</small></a>
+                <a href="#" class="dropdown-item" data-toggle="modal" data-target="#drugInfoModal"><small>Search suggestion one</small></a>
+            </div>
+        </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+<!-- Drug Information overview Modal -->
+<div id="drugOverview">
+    
+</div>
+
+
+     
+    
+        <!-- Here, you'd include modals for both Drugs and Equipment. 
+        You can suffix the modal IDs with Drug or Equipment for differentiation, like:
+        #addDrugModal, #editDrugModal, #deleteDrugModal
+        #addEquipmentModal, #editEquipmentModal, #deleteEquipmentModal 
+        ... and so forth. -->
+        
+        <!-- Modal for adding new drug -->
+<div class="modal fade" id="addDrugModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add New Drug</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <!-- Form to add new drug -->
+                <form id="addDrugForm">
+
+                     <!-- Image Section -->
+                     <div class="form-group">
+                        <label for="addDrugImage">Drug Image</label>
+                        <input type="file" class="form-control-file" id="addDrugImage">
+                    </div>
+                    
+                    <!-- Drug Name -->
+                    <div class="form-group">
+                        <label for="drugName">Drug Name</label>
+                        <input type="text" class="form-control" id="drugName" placeholder="Enter drug name" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="api">Active Ingredient</label>
+                        <input type="text" class="form-control" id="api" placeholder="Enter API" required>
+                    </div>
+    
+                    <!-- Drug Category -->
+                    <div class="form-group">
+                        <label for="drugCategory">Category</label>
+                        <select class="form-control" id="drugCategory">
+                            <option value=""  selected>Select a category</option>
+                            <option value="cns"  >Central Nervous System (CNS) Agents</option>
+                            <option value="cardio"  >Cardiovascular Agents</option>
+                            <option value="gi"  >Gastrointestinal (GI) Agents</option>
+                            <option value="onco"  >Oncology (Onco) Agents</option>
+                            <option value="antibio"  >Antibiotics/Antimicrobials</option>
+                            <option value="endocrine"  >Endocrine Agents</option>
+                            <option value="musculo"  >Musculoskeletal Agents</option>
+                            <option value="respiratory"  >Respiratory Agents</option>
+                            <option value="genito"  >Genitourinary Agents</option>
+                            <option value="derma"  >Dermatologic Agents</option>
+                            <option value="immuno"  >Immunological Agents</option>
+                            <option value="hemato"  >Hematologic Agents</option>
+                            <option value="ophthal"  >Ophthalmic Agents</option>
+                            <option value="otic"  >Otic Agents</option>
+
+                            <!-- Populate with categories from your DB -->
+                        </select>
+                    </div>
+    
+                    <!-- Manufacturer -->
+                    <div class="form-group">
+                        <label for="manufacturer">Manufacturer</label>
+                        <input type="text" class="form-control" id="manufacturer" placeholder="Enter manufacturer's name" required>
+                    </div>
+    
+                    <!-- Expiry Date -->
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="date" class="form-control" id="expiryDate" required>
+                        <small class="form-text text-muted">Please ensure the accuracy of this date.</small>
+                    </div>
+    
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <textarea class="form-control" id="drugDescription" rows="3" placeholder="Briefly describe the drug"></textarea>
+                    </div>
+    
+                    <!-- Price -->
+                    <div class="form-group">
+                        <label for="price">Price ($)</label>
+                        <input type="number" step="0.01" class="form-control" id="drugPrice" placeholder="Enter price" required>
+                    </div>
+    
+                    <!-- Quantity -->
+                    <div class="form-group">
+                        <label for="quantity">Quantity in Stock</label>
+                        <input type="number" class="form-control" id="drugQuantity" placeholder="Enter quantity" required>
+                    </div>
+    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="addDrugBtn" data-dismiss="modal">Add Item</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal for editing drug -->
+<div id="editDrugContainer">
+
+</div>
+
+<!-- Modal for deleting drug -->
+<div class="modal fade" id="deleteDrugModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the product <strong id="deleteDrugName">Drug Name</strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" onclick="deleteDrug()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal for inspecting Drug details -->
+<div id="overviewDrugInspect">
+    
+</div>
+    
+    </div>
+
+    <!-- TODO: -->
+    <!-- Modal for adding new product -->
+<div class="modal fade" id="addEquipmentModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add New Equipment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addEquipmentForm">
+                    <!-- Image Section -->
+                    <div class="form-group">
+                        <label for="equipmentImage">Equipment Image</label>
+                        <input type="file" class="form-control-file" id="equipmentImage">
+                    </div>
+                    <!-- Details Section -->
+                    <div class="form-group">
+                        <label for="equipmentName">Equipment Name</label>
+                        <input type="text" class="form-control" id="equipmentName" placeholder="Enter equipment name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentCategory">Category</label>
+                        <select class="form-control" id="equipmentCategory">
+                            <!-- Categories can be dynamically populated here -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentManufacturer">Manufacturer</label>
+                        <input type="text" class="form-control" id="equipmentManufacturer" placeholder="Enter manufacturer name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modelNumber">Model Number</label>
+                        <input type="text" class="form-control" id="modelNumber" placeholder="Enter model number">
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentDescription">Description</label>
+                        <textarea class="form-control" id="equipmentDescription" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentPrice">Price</label>
+                        <input type="number" class="form-control" id="equipmentPrice" placeholder="Enter price" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addEquipment()">Save Item</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal for editing product -->
+<div class="modal fade" id="editEquipmentModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Equipment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editEquipmentForm">
+                    <!-- Image Section -->
+                    <div class="form-group">
+                        <label for="editEquipmentImage">Equipment Image</label>
+                        <input type="file" class="form-control-file" id="editEquipmentImage">
+                        <small id="imageHelp" class="form-text text-muted">Leave blank if you don't want to change the image.</small>
+                    </div>
+                    <!-- Details Section -->
+                    <div class="form-group">
+                        <label for="editEquipmentName">Equipment Name</label>
+                        <input type="text" class="form-control" id="editEquipmentName" placeholder="Enter equipment name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEquipmentCategory">Category</label>
+                        <select class="form-control" id="editEquipmentCategory">
+                            <!-- Categories can be dynamically populated here -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEquipmentManufacturer">Manufacturer</label>
+                        <input type="text" class="form-control" id="editEquipmentManufacturer" placeholder="Enter manufacturer name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editModelNumber">Model Number</label>
+                        <input type="text" class="form-control" id="editModelNumber" placeholder="Enter model number">
+                    </div>
+                    <div class="form-group">
+                        <label for="editEquipmentDescription">Description</label>
+                        <textarea class="form-control" id="editEquipmentDescription" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEquipmentPrice">Price</label>
+                        <input type="number" class="form-control" id="editEquipmentPrice" placeholder="Enter price" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateEquipment()">Update Item</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal for deleting product -->
+<div class="modal fade" id="deleteEquipmentModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Equipment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img id="deleteEquipmentThumbnail" src="./assets/photo_2023-10-25_13-47-33.jpg" alt="Equipment Thumbnail" class="img-thumbnail">
+                    </div>
+                    <div class="col-sm-8">
+                        <p>Are you sure you want to delete the following equipment?</p>
+                        <strong id="deleteEquipmentName">Equipment Name Here</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" onclick="deleteEquipment()">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal for inspecting product details -->
+<div class="modal fade" id="inspectEquipmentModal" tabindex="-1" role="dialog" aria-labelledby="inspectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inspectModalLabel">Equipment Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Equipment Image -->
+                    <div class="col-lg-5">
+                        <img src="./assets/photo_2023-10-25_13-47-33.jpg" alt="Equipment Image" class="img-fluid rounded">
+                    </div>
+    
+                    <!-- Equipment Details -->
+                    <div class="col-lg-7">
+                        <div class="card">
+                            <div class="card-header">Specifications</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Name:</strong> <span id="equipmentName">Equipment Name Here</span></li>
+                                <li class="list-group-item"><strong>Type:</strong> <span id="equipmentType">Equipment Type</span></li>
+                                <li class="list-group-item"><strong>Brand:</strong> <span id="equipmentBrand">Brand Name</span></li>
+                                <li class="list-group-item"><strong>Price:</strong> $<span id="equipmentPrice">1000</span></li>
+                                <li class="list-group-item"><strong>Description:</strong> <span id="equipmentDescription">Detailed description of the equipment goes here.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    
+
+
+<!-- Client js -->
+<script src="./manageDash.js" type="module"></script>
+
+
+ <!-- Bootstrap JavaScript (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

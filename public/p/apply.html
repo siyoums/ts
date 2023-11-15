@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Application - Conflict Notify</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo2.jpg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto&family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <style>
+          body { font-family: 'Arimo', sans-serif; }
+
+        
+        .text-tiny {
+            font-size: 15px;
+        }
+                
+        
+        .border-button {
+            background-color: transparent;
+            color: inherit; /* Use the inherit color from the parent element */
+            border: 1px solid #000; /* You can adjust the border color and width */
+            padding: 5px 10px; /* Adjust the padding as needed */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Make the button inline */
+        }
+    
+        /* Optionally, you can style the button when hovering over it */
+        .border-button:hover {
+            background-color: transparent;
+            border-color: #e6772d; /* Change the border color on hover */
+        }
+        .footer {
+            background-color: #002f62;
+            color: #ffffff;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            padding: 5px 0;
+        }
+        .footer-social-icons {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .card-img-top {
+        max-height: 200px; /* Adjust this value to your preferred image height */
+        object-fit: cover;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (You can include your existing navbar code here) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"  >
+        <div class="container">
+            <a class="navbar-brand " href="../index.html" >
+                    <span style="background-color: #011747; color: rgb(241, 241, 241); padding: 3px 5px; border-radius: 5px; "><b>Conflict</b></span>
+                    <span style="color: #064685; font-size:larger;" >Notify</span>
+                 </a>                
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto">
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item " style="margin-right: 30px;">
+                    <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./about.html">About Us</a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./products.html">Products and Services</a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./careers.html">Careers</a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./partnering.html">Partnering</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div> 
+    </nav>
+    <hr class="mt-0">
+
+    <!-- Career Application Form Content -->
+    <div class="container mt-5">
+        <h1 class="mb-4">Career Application</h1>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Phone" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="resume">Upload Resume (PDF or Word)</label>
+                    <input type="file" class="form-control-file" id="resume" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Cover Letter (Optional)</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Write your cover letter here"></textarea>
+            </div>
+            <div class="form-group" id="msg"></div>
+            <button type="submit" class="text-dark" id="apply">Submit Application</button>
+        </form>
+        <ul class="list-group mt-4">
+            <!-- Product 1 -->
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <img src="product1.jpg" alt="Product 1" class="img-fluid"> -->
+                        <h5 class="font-weight-bold">Afinitor Disperz/Votubia</h5>
+                        <p class="text-very-tiny text-muted">(everolimus)</p>
+                        <p class="">Oncology</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted text-tiny">Upcoming events</p>
+                        <p>Improving access to healthcare day.</p>
+                        <a href="#" class="text-very-tiny">Learn More</a>
+                    </div>
+                </div>
+            </li>
+</ul>
+    </div>
+    
+    <hr class="mb-0 container mt-5"> 
+    <!-- Footer with Rounded Borders -->
+    <footer class="text-dark pt-4 ">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-tiny">
+                        <li><a href="#">Copyright</a> &copy; Conflict Notify</li>
+                        <li>Main Office 9568 Africa Avenue / Bole Road, Addis Ababa ET</li>
+                        <li>Phone +251982680011 <br>info@ConflictNotify.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mt-4 " id="logo">
+                    <h4 class="m" href="#">
+                        <a class="navbar-brand " href="#" >
+                    <span style="background-color: #011747; color: rgb(241, 241, 241); padding: 3px 5px; border-radius: 5px; "><b>Conflict</b></span>
+                    <span style="color: #064685; font-size:larger;" >Notify</span>
+                 </a>                
+
+                    </h4>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../scripts/apply.js" type="module"></script>
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Conflict Notify</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo2.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto&family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+<style>
+   body { font-family: 'Arimo', sans-serif; }
+
+    
+        .text-tiny {
+            font-size: 15px;
+        }
+    
+    .text-very-tiny {
+        font-size: 13px; /* Adjust the font size as needed */
+    }
+    .footer {
+            background-color: #002f62;
+            color: #ffffff;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            padding: 5px 0;
+        }
+        .footer-social-icons {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+</style>
+</head>
+<body>
+    <!-- Navigation Bar (You can include your existing navbar code here) -->
+    <nav class="navbar navbar-expand-lg navbar-light  bg-light " >
+        <div class="container">
+            <a class="navbar-brand " href="../index.html" >
+                    <span style="background-color: #011747; color: rgb(241, 241, 241); padding: 3px 5px; border-radius: 5px; "><b>Conflict</b></span>
+                    <span style="color: #064685; font-size:larger;" >Notify</span>
+                 </a>                
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto">
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item " style="margin-right: 30px;">
+                    <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./about.html">About Us</a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link active" href="./products.html">Products and Services</a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./careers.html">Careers</a>
+                </li>
+                <li class="nav-item" style="margin-right: 30px;">
+                    <a class="nav-link" href="./partnering.html">Partnering</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div> 
+    </nav>
+
+    <hr class="mt-0">
+
+    <!-- Products Page Content -->
+    <div class="container mt-5">
+        <h1 class="">Our Products</h1>
+        <p>Below is a list of the treatments we currently offer via our Innovative Medicines Division. Visit Sandoz and Advanced Accelerator Applications to learn about our generics and radioNotifyceutical products.
+           <br> Please note: Not all treatments are available in all countries.</p>
+        
+        <!-- <ul class="list-group mt-4" id="list-container"> -->
+            <!-- Product 1 -->
+        <!-- </ul> -->
+        <div class="container mt-5">
+            <ul id="drugList" class="list-group mb-3">
+                <!-- Drugs will be displayed here -->
+            </ul>
+            
+            <!-- Pagination buttons at the bottom -->
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary mr-2" id="prevBtn" ">Previous</button>
+                <button class="btn btn-primary" id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="mb-0 container mt-5"> 
+    <!-- Footer with Rounded Borders -->
+    <footer class="text-dark pt-4 ">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-4">
+                    <ul class="list-unstyled text-tiny">
+                        <li><a href="#">Copyright</a> &copy; Conflict Notify</li>
+                        <li>Main Office 9568 Africa Avenue / Bole Road, Addis Ababa ET</li>
+                        <li>Phone +251982680011 <br>info@ConflictNotify.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mt-4 " id="logo">
+                    <h4 class="m" href="#">
+                        <a class="navbar-brand " href="#" >
+                    <span style="background-color: #011747; color: rgb(241, 241, 241); padding: 3px 5px; border-radius: 5px; "><b>Conflict</b></span>
+                    <span style="color: #064685; font-size:larger;" >Notify</span>
+                 </a>                
+
+                    </h4>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../scripts/products.js" type="module"></script>
+</body>
+</html>
